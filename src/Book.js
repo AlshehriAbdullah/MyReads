@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 class Book extends Component {
   static PropTypes = {
     books: PropTypes.array.isRequired,
+    updateBooks: PropTypes.func.isRequired,
   }
   state ={
     selectedValue : ''
@@ -15,7 +16,7 @@ class Book extends Component {
   }
 
   render() {
-    const bookObject = { }
+    const bookObject = { books, book, updateBooks,  }
 
     return (
         <li>
