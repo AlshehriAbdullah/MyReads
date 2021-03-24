@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 
 class Book extends Component {
   static PropTypes = {
-
+    books: PropTypes.array.isRequired,
   }
   state ={
     selectedValue : ''
