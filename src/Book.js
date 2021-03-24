@@ -15,7 +15,7 @@ class Book extends Component {
   }
 
   render() {
-    const bookObject = {}
+    const bookObject = {  }
 
     return (
         <li>
