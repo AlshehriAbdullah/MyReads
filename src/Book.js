@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 
 
@@ -16,7 +15,7 @@ class Book extends Component {
   }
 
   render() {
-    const bookObject = { books, book, updateBooks,  }
+    const bookObject = { books, book, updateBooks, }
 
     return (
         <li>
