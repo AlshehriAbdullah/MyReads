@@ -1,9 +1,13 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import PropType from 'prop-types'
+import Book from './Book'
+
 
 
 class BooksList extends Component {
   render() {
+    const {books, updateBooks, } = this.props
 
     return (
       <div className="list-books">
@@ -16,8 +20,10 @@ class BooksList extends Component {
                   <h2 className="bookshelf-title">Currently Reading</h2>
                   <div className="bookshelf-books">
                     <ol className="books-grid">
-
-
+                      {books.map((book) => (
+                        <Book book={book}/> 
+                
+                      ))}
                     </ol>
                   </div>
                 </div>
@@ -25,7 +31,10 @@ class BooksList extends Component {
                   <h2 className="bookshelf-title">Want to Read</h2>
                   <div className="bookshelf-books">
                     <ol className="books-grid">
-                      
+                      {books.map((book) => (
+                        <Book book={book}/> 
+                
+                      ))}
                       
                     </ol>
                   </div>
@@ -34,7 +43,10 @@ class BooksList extends Component {
                   <h2 className="bookshelf-title">Read</h2>
                   <div className="bookshelf-books">
                     <ol className="books-grid">
-                      
+                      {books.map((book) => (
+                        <Book book={book}/> 
+              
+                      ))}
                     </ol>
                   </div>
                 </div>

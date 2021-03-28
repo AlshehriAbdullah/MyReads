@@ -34,7 +34,7 @@ class BooksApp extends React.Component {
   }
 
   render() {
-    console.table(this.state.books);
+    console.log(this.state.books);
     return (
       <div className="app">
         <Route exact path='/' >

@@ -9,18 +9,18 @@ class Search extends Component {
         query:''
     }
 
-    updateQuery = (query) => {
+    handleChange = (query) => {
         this.setState(() => ({
             query: query.trim()
         }))
       }
       clearQuery = () => {
-        this.updateQuery('')
+        this.handleChange('')
     }
 
   render() {
+    const {query} = this.state
     const {books, updateBooks, } = this.props
-    
 
     return (
       <div className="search-books">
@@ -30,7 +30,7 @@ class Search extends Component {
           Close
           </Link>
 
-          <div className="search-books-input-wrapper">
+          <div className="search-books-input-wrapper ">
             {/*
                   NOTES: The search from BooksAPI is limited to a particular set of search terms.
                   You can find these search terms here:
@@ -39,14 +39,18 @@ class Search extends Component {
                   However, remember that the BooksAPI.search method DOES search by title or author. So, don't worry if
                   you don't find a specific author or title. Every search is limited by search terms.
                 */}
-            <input type="text" placeholder="Search by title or author" />
+            <input type="text" 
+            placeholder="Search by title or author"
+            value={query}
+            onChange={(event) => this.handleChange(event.target.value)} />
           </div>
         </div>
         <div className="search-books-results" >
-          kslkgnjsdkgjsk
+          
           <ol className="books-grid" >
             {books.map((book) => (
-              <Book book={book}/> 
+              // <Book book={book}/>
+              <Book key={book.id} book={book} /> 
               
               ))} 
           </ol>
