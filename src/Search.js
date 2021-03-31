@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom'
 import Book from './Book'
+import * as BooksAPI from './BooksAPI'
 
 
 
 class Search extends Component {
     state ={
-        query:''
+        query:'',
     }
 
     handleChange = (query) => {
@@ -17,11 +18,13 @@ class Search extends Component {
       clearQuery = () => {
         this.handleChange('')
     }
+    
 
   render() {
     const {query} = this.state
     const {books, updateBooks, } = this.props
-
+    
+    
     return (
       <div className="search-books">
         <div className="search-books-bar">
