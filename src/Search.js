@@ -8,21 +8,37 @@ import * as BooksAPI from './BooksAPI'
 class Search extends Component {
     state ={
         query:'',
+        newBooks:[]
     }
 
     handleChange = (query) => {
         this.setState(() => ({
             query: query.trim()
         }))
+        this.getNewBook()
       }
       clearQuery = () => {
         this.handleChange('')
     }
-    
+
+    getNewBook = event => {
+      BooksAPI.search(
+        this.state.query
+      ).then(response => {
+        if (response !== undefined && this.state.query !== "") {
+          this.setState({
+            newBooks:response
+          })
+        }
+        else {this.setState({
+          newBooks:[]
+        })}
+      })
+    }
 
   render() {
-    const {query} = this.state
-    const {books, updateBooks, } = this.props
+    const {query, newBooks} = this.state
+    const {books, updateBooks,  } = this.props
     
     
     return (
@@ -42,7 +58,7 @@ class Search extends Component {
                   However, remember that the BooksAPI.search method DOES search by title or author. So, don't worry if
                   you don't find a specific author or title. Every search is limited by search terms.
                 */}
-            <input type="text" 
+            <input type="query" 
             placeholder="Search by title or author"
             value={query}
             onChange={(event) => this.handleChange(event.target.value)} />
@@ -51,9 +67,9 @@ class Search extends Component {
         <div className="search-books-results" >
           
           <ol className="books-grid" >
-            {books.map((book) => (
+            {newBooks.map((book) => (
               // <Book book={book}/>
-              <Book key={book.id} book={book} /> 
+              <Book key={book.id} book={book} books={books} updateBooks={updateBooks}/> 
               
               ))} 
           </ol>

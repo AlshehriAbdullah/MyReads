@@ -6,8 +6,24 @@ import Book from './Book'
 
 
 class BooksList extends Component {
+  static PropType = {
+    books: PropType.array.isRequired,
+    updateBooks: PropType.func.isRequired
+  }
+
   render() {
+
     const {books, updateBooks, } = this.props
+
+    const currentlyReading = books.filter(booksFilter => {
+      return booksFilter.shelf === "currentlyReading"
+    })
+    const wantToRead = books.filter(booksFilter => {
+      return booksFilter.shelf === "wantToRead"
+    })
+    const read = books.filter(booksFilter => {
+      return booksFilter.shelf === "read"
+    })
 
     return (
       <div className="list-books">
@@ -20,8 +36,9 @@ class BooksList extends Component {
                   <h2 className="bookshelf-title">Currently Reading</h2>
                   <div className="bookshelf-books">
                     <ol className="books-grid">
-                      {books.map((book) => (
-                        <Book book={book}/> 
+                      {currentlyReading.map((book) => (
+                        // <Book book={book}/> 
+                        <Book key={book.id} book={book} books={books} updateBooks={updateBooks}/> 
                 
                       ))}
                     </ol>
@@ -31,8 +48,9 @@ class BooksList extends Component {
                   <h2 className="bookshelf-title">Want to Read</h2>
                   <div className="bookshelf-books">
                     <ol className="books-grid">
-                      {books.map((book) => (
-                        <Book book={book}/> 
+                    {wantToRead.map((book) => (
+                        // <Book book={book}/> 
+                        <Book key={book.id} book={book} books={books} updateBooks={updateBooks}/> 
                 
                       ))}
                       
@@ -43,9 +61,10 @@ class BooksList extends Component {
                   <h2 className="bookshelf-title">Read</h2>
                   <div className="bookshelf-books">
                     <ol className="books-grid">
-                      {books.map((book) => (
-                        <Book book={book}/> 
-              
+                    {read.map((book) => (
+                        // <Book book={book}/> 
+                        <Book key={book.id} book={book} books={books} updateBooks={updateBooks}/> 
+                
                       ))}
                     </ol>
                   </div>
