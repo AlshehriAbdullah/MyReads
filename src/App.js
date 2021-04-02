@@ -28,9 +28,9 @@ class BooksApp extends React.Component {
   }
 
   updateBooks = (book, shelf) => {
-      BooksAPI.update(book, shelf).then(update => {
-        this.newBook()
-      })
+    BooksAPI.update(book, shelf).then(e => {
+      this.newBook()
+    })
   }
 
   newBook = () => {
@@ -45,7 +45,7 @@ class BooksApp extends React.Component {
 
   render() {
     // console.log(this.state.books);
-    
+
     return (
       <div className="app">
         <Route exact path='/' >

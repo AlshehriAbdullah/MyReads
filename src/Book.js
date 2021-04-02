@@ -11,6 +11,7 @@ class Book extends Component {
   state ={
     selectedValue : ''
   }
+
   handleChange(event) { 
     const {updateBooks, book}= this.props
     // this.setState ({selectedValue: event.target.value})
@@ -24,6 +25,7 @@ class Book extends Component {
   render() {
     const {books, updateBooks, book } = this.props
     // const {selectedValue} = this.state
+    
     let shelf = ""
     
     books.forEach(b => {
@@ -32,9 +34,9 @@ class Book extends Component {
       }
     })
     
-    console.log(book);
-    console.log("hello it is me" , updateBooks)
-    console.log("me again " , shelf)
+    // console.log(book);
+    console.log("1" , updateBooks)
+    console.log("2 " , shelf)
 
 
 
@@ -44,7 +46,7 @@ class Book extends Component {
                 <div className="book-top">
                 <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url('${book.imageLinks.thumbnail}')` }}></div>
                 <div className="book-shelf-changer">
-                    <select value={shelf} onChange={() => this.handleChange}>
+                    <select  onChange={this.handleChange} value={shelf}>
                       <option value="move" disabled>Move to...</option>
                       <option value="currentlyReading">Currently Reading</option>
                       <option value="wantToRead">Want to Read</option>
