@@ -8,36 +8,24 @@ class Book extends Component {
     updateBooks: PropType.func.isRequired,
     book : PropType.object.isRequired
   }
-  state ={
-    selectedValue : ''
-  }
 
   handleChange(event) { 
     const {updateBooks, book}= this.props
-    // this.setState ({selectedValue: event.target.value})
    updateBooks (book, event.target.value)
-    
+   
   }
 
-  
-  
-
   render() {
-    const {books, updateBooks, book } = this.props
-    // const {selectedValue} = this.state
+    const {books, book } = this.props
+    this.handleChange = this.handleChange.bind(this);
     
-    let shelf = ""
+    let shelf = "none"
     
     books.forEach(b => {
       if (b.id === book.id){
         shelf = b.shelf
       }
     })
-    
-    // console.log(book);
-    console.log("1" , updateBooks)
-    console.log("2 " , shelf)
-
 
 
     return (

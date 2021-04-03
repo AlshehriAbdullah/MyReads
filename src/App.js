@@ -15,7 +15,6 @@ class BooksApp extends React.Component {
      * pages, as well as provide a good URL they can bookmark and share.
      */
     books:[],
-    // showSearchPage: false
   }
 
    componentDidMount() {
@@ -44,7 +43,6 @@ class BooksApp extends React.Component {
 
 
   render() {
-    // console.log(this.state.books);
 
     return (
       <div className="app">

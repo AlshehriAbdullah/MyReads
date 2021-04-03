@@ -36,6 +36,7 @@ class Search extends Component {
       })
     }
 
+
   render() {
     const {query, newBooks} = this.state
     const {books, updateBooks,  } = this.props
@@ -68,7 +69,6 @@ class Search extends Component {
           
           <ol className="books-grid" >
             {newBooks.map((book) => (
-              // <Book book={book}/>
               <Book key={book.id} book={book} books={books} updateBooks={updateBooks}/> 
               
               ))} 
