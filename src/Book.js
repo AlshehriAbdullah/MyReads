@@ -25,13 +25,13 @@ class Book extends Component {
         shelf = b.shelf
       }
     })
-
+    // console.log(book);
 
     return (
         <li>
             <div className="book">
                 <div className="book-top">
-                <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url('${book.imageLinks.thumbnail}')` }}></div>
+                <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url('${book.imageLinks.smallThumbnail}')` }}></div>
                 <div className="book-shelf-changer">
                     <select value={shelf} onChange={this.handleChange}>
                       <option value="move" disabled>Move to...</option>
