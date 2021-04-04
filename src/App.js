@@ -18,8 +18,7 @@ class BooksApp extends React.Component {
   }
 
    componentDidMount() {
-     BooksAPI.getAll()
-    .then ((books) => {
+     BooksAPI.getAll().then ((books) => {
       this.setState(() =>({
         books
       }))
@@ -33,8 +32,7 @@ class BooksApp extends React.Component {
   }
 
   newBook = () => {
-    BooksAPI.getAll()
-    .then ((books) => {
+    BooksAPI.getAll().then ((books) => {
       this.setState({
         books
       })

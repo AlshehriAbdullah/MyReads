@@ -22,9 +22,7 @@ class Search extends Component {
     }
 
     getNewBook = event => {
-      BooksAPI.search(
-        this.state.query
-      ).then(response => {
+      BooksAPI.search(this.state.query).then(response => {
         if (response !== undefined && this.state.query !== "") {
           this.setState({
             newBooks:response

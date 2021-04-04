@@ -6,7 +6,6 @@ class Book extends Component {
   static PropType = {
     books: PropType.array.isRequired,
     updateBooks: PropType.func.isRequired,
-    book : PropType.object.isRequired
   }
 
   handleChange(event) { 
@@ -21,7 +20,7 @@ class Book extends Component {
     
     let shelf = "none"
     
-    books.forEach(b => {
+    books.map(b => {
       if (b.id === book.id){
         shelf = b.shelf
       }
