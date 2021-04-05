@@ -18,11 +18,11 @@ class Book extends Component {
     const {books, book } = this.props
     this.handleChange = this.handleChange.bind(this);
     
-    let shelf = "none"
+    let shelfSelecter = "none"
     
     books.map(b => {
       if (b.id === book.id){
-        shelf = b.shelf
+        shelfSelecter = b.shelf
       }
     })
     // console.log(book);
@@ -33,7 +33,7 @@ class Book extends Component {
                 <div className="book-top">
                 <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url('${book.imageLinks.smallThumbnail}')` }}></div>
                 <div className="book-shelf-changer">
-                    <select value={shelf} onChange={this.handleChange}>
+                    <select value={shelfSelecter} onChange={this.handleChange}>
                       <option value="move" disabled>Move to...</option>
                       <option value="currentlyReading">Currently Reading</option>
                       <option value="wantToRead">Want to Read</option>
