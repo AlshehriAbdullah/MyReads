@@ -13,7 +13,8 @@ class Search extends Component {
 
     handleChange = (query) => {
         this.setState(() => ({
-            query: query.trim()
+            // query: query.trim()
+            query: query
         }))
         this.getNewBook()
       }
@@ -23,7 +24,9 @@ class Search extends Component {
 
     getNewBook = event => {
       BooksAPI.search(this.state.query).then(response => {
-        if (response !== undefined && this.state.query !== "") {
+        console.log(response);
+        
+        if (response !== undefined && this.state.query !== "" && !response.hasOwnProperty('error')) {
           this.setState({
             newBooks:response
           })
@@ -67,7 +70,7 @@ class Search extends Component {
           
           <ol className="books-grid" >
             {newBooks.map((book) => (
-              <Book key={book.id} book={book} books={books} updateBooks={updateBooks}/> 
+              <Book key={book.id} book={book} books={books} updateBooks={updateBooks} /> 
               
               ))} 
           </ol>
