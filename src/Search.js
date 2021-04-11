@@ -18,6 +18,7 @@ class Search extends Component {
         }))
         this.getNewBook()
       }
+
       clearQuery = () => {
         this.handleChange('')
     }
