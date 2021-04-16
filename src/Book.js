@@ -17,20 +17,18 @@ class Book extends Component {
     const {books, book } = this.props
     this.handleChange = this.handleChange.bind(this);
     
-
-    
     let shelfSelecter = "none"
-    
+  
     books.map(b => {
       if (b.id === book.id){
         shelfSelecter = b.shelf
       }
     })
 
-      console.log(book);
-    const bookTumbnail = "https://storage.googleapis.com/webdesignledger.pub.network/LaT/edd/2016/02/grungy-front-book-cover-3.jpg"
+    console.log(book);
+    const bookTumbnail = 'https://storage.googleapis.com/webdesignledger.pub.network/LaT/edd/2016/02/grungy-front-book-cover-3.jpg'
     const thumbnail = book.imageLinks.thumbnail ? book.imageLinks.thumbnail : bookTumbnail
-    console.log('thumbnail', thumbnail);
+    console.log('thumbnail', book.imageLinks.thumbnail);
 
     return (
         <li>

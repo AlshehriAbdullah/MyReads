@@ -16,27 +16,38 @@ class Search extends Component {
             // query: query.trim()
             query: query
         }))
-        this.getNewBook()
+        BooksAPI.search(query).then(response => {
+          console.log("res",response);
+          
+          if (response !== undefined && this.state.query !== "" && !response.hasOwnProperty('error')) {
+            this.setState({
+              newBooks:response
+            })
+          }
+          else {this.setState({
+            newBooks:[]
+          })}
+        })
       }
 
       clearQuery = () => {
         this.handleChange('')
     }
 
-    getNewBook = event => {
-      BooksAPI.search(this.state.query).then(response => {
-        console.log(response);
+    // getNewBook = event => {
+    //   BooksAPI.search(this.state.query).then(response => {
+    //     console.log("res",response);
         
-        if (response !== undefined && this.state.query !== "" && !response.hasOwnProperty('error')) {
-          this.setState({
-            newBooks:response
-          })
-        }
-        else {this.setState({
-          newBooks:[]
-        })}
-      })
-    }
+    //     if (response !== undefined && this.state.query !== "" && !response.hasOwnProperty('error')) {
+    //       this.setState({
+    //         newBooks:response
+    //       })
+    //     }
+    //     else {this.setState({
+    //       newBooks:[]
+    //     })}
+    //   })
+    // }
 
 
   render() {
