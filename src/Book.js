@@ -25,23 +25,14 @@ class Book extends Component {
       }
     })
 
-    console.log(book);
     const bookTumbnail = 'https://storage.googleapis.com/webdesignledger.pub.network/LaT/edd/2016/02/grungy-front-book-cover-3.jpg'
-    const thumbnail = book.imageLinks.thumbnail ? book.imageLinks.thumbnail : bookTumbnail
-    console.log('thumbnail', book.imageLinks.thumbnail);
+    const thumbnail = book.imageLinks ? book.imageLinks.thumbnail : bookTumbnail
 
     return (
         <li>
             <div className="book">
                 <div className="book-top">
                 <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(' ${thumbnail}')` }}></div>
-
-                {/* <div className="book-cover" 
-                    style={{ width: 128, height: 193, backgroundImage: 'url(' + (book.imageLinks.thumbnail
-                    ? book.imageLinks.thumbnail
-                    : bookTumbnail) + ')' }}></div> */}
-
-
                 <div className="book-shelf-changer">
                     <select value={shelfSelecter} onChange={this.handleChange}>
                       <option value="move" disabled>Move to...</option>
