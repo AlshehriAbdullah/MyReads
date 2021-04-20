@@ -4,7 +4,6 @@ import Book from './Book'
 import * as BooksAPI from './BooksAPI'
 
 
-
 class Search extends Component {
     state ={
         query:'',
@@ -13,7 +12,6 @@ class Search extends Component {
 
     handleChange = (query) => {
         this.setState(() => ({
-            // query: query.trim()
             query: query
         }))
         BooksAPI.search(query).then(response => {
@@ -34,21 +32,6 @@ class Search extends Component {
         this.handleChange('')
     }
 
-    // getNewBook = event => {
-    //   BooksAPI.search(this.state.query).then(response => {
-    //     console.log("res",response);
-        
-    //     if (response !== undefined && this.state.query !== "" && !response.hasOwnProperty('error')) {
-    //       this.setState({
-    //         newBooks:response
-    //       })
-    //     }
-    //     else {this.setState({
-    //       newBooks:[]
-    //     })}
-    //   })
-    // }
-
 
   render() {
     const {query, newBooks} = this.state
@@ -63,15 +46,7 @@ class Search extends Component {
           Close
           </Link>
 
-          <div className="search-books-input-wrapper ">
-            {/*
-                  NOTES: The search from BooksAPI is limited to a particular set of search terms.
-                  You can find these search terms here:
-                  https://github.com/udacity/reactnd-project-myreads-starter/blob/master/SEARCH_TERMS.md
-
-                  However, remember that the BooksAPI.search method DOES search by title or author. So, don't worry if
-                  you don't find a specific author or title. Every search is limited by search terms.
-                */}
+          <div className="search-books-input-wrapper ">ß
             <input type="query" 
             placeholder="Search by title or author"
             value={query}

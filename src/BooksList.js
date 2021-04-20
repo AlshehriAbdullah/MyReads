@@ -15,21 +15,6 @@ class BooksList extends Component {
 
     const {books, updateBooks, } = this.props
 
-    // const shelves = [
-    //   {
-    //     title: 'Currently Reading',
-    //     id: 'currentlyReading'
-    //   },
-    //   {
-    //     title: 'Want To Read',
-    //     id: 'wantToRead'
-    //   },
-    //   {
-    //     title: 'Read',
-    //     id: 'read'
-    //   }
-    // ];
-
     const currentlyReading = books.filter(booksFilter => {
       return booksFilter.shelf === "currentlyReading"
     })
@@ -52,9 +37,7 @@ class BooksList extends Component {
                   <div className="bookshelf-books">
                     <ol className="books-grid">
                       {currentlyReading.map((book) => (
-                        // <Book book={book}/> 
-                        <Book key={book.id} book={book} books={books} updateBooks={updateBooks}/> 
-                
+                        <Book key={book.id} book={book} books={books} updateBooks={updateBooks}/>
                       ))}
                     </ol>
                   </div>
@@ -64,9 +47,7 @@ class BooksList extends Component {
                   <div className="bookshelf-books">
                     <ol className="books-grid">
                     {wantToRead.map((book) => (
-                        // <Book book={book}/> 
                         <Book key={book.id} book={book} books={books} updateBooks={updateBooks}/> 
-                
                       ))}
                       
                     </ol>
@@ -77,9 +58,7 @@ class BooksList extends Component {
                   <div className="bookshelf-books">
                     <ol className="books-grid">
                     {read.map((book) => (
-                        // <Book book={book}/> 
                         <Book key={book.id} book={book} books={books} updateBooks={updateBooks}/> 
-                
                       ))}
                     </ol>
                   </div>
